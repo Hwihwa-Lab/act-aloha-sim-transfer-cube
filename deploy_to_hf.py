@@ -50,7 +50,7 @@ def parse_args():
     parser.add_argument("--repo_name", type=str, default="act-aloha-sim-transfer-cube", help="Hugging Face repo name")
     parser.add_argument("--repo_type", type=str, default="model", choices=["model", "dataset", "space"])
     parser.add_argument("--token", type=str, default=None, help="Hugging Face API token (or uses cached login)")
-    parser.add_argument("--private", action="store_true", help="Set repository to private")
+    parser.add_argument("--public", action="store_true", help="Set repository to public (Default is PRIVATE for safety)")
     parser.add_argument("--bundle_only", action="store_true", help="Only create ZIP bundle without uploading")
     return parser.parse_args()
 
@@ -80,11 +80,12 @@ def main():
         print("Tip: Run 'huggingface-cli login' or pass --token YOUR_TOKEN")
         sys.exit(1)
 
+    is_private = not args.public
     repo_id = f"{username}/{args.repo_name}"
     print(f" [*] Target User : {username}")
     print(f" [*] Repo ID     : {repo_id}")
     print(f" [*] Repo Type   : {args.repo_type}")
-    print(f" [*] Visibility  : {'Private' if args.private else 'Public'}")
+    print(f" [*] Visibility  : {'PRIVATE (Safe Mode - Only you can see)' if is_private else 'PUBLIC (Live to World)'}")
     print("=" * 65)
 
     # Step 3: Create or connect to repository
@@ -93,10 +94,10 @@ def main():
         repo_url = api.create_repo(
             repo_id=repo_id,
             repo_type=args.repo_type,
-            private=args.private,
+            private=is_private,
             exist_ok=True
         )
-        print(f"  --> Repository ready: {repo_url}")
+        print(f"  --> Repository ready ({'Private' if is_private else 'Public'}): {repo_url}")
     except Exception as e:
         print(f"[ERROR] Repository creation failed: {e}")
         sys.exit(1)
