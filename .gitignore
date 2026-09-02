@@ -1,0 +1,15 @@
+﻿# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+
+# OS / Temporary debug files
+.DS_Store
+Thumbs.db
+debug_*.png
+iso_cam*.png
