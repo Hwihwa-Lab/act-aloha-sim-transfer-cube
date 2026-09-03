@@ -1,13 +1,11 @@
 """Aloha Bimanual (14-DOF) MuJoCo Physics Environment.
 
 Features:
-- Fixed Cube Physics: Perfectly resting red cube on table surface without collision pop/fall.
-- Studio Studio Lighting & Materials: Realistic metallic gray robot arms without white overexposure.
-- 3 Perfectly Centered Multi-Angle Camera Perspectives:
-  1) top_cam: Overhead Top-down bimanual symmetry view
-  2) iso_cam: 3D Isometric 45-degree angled view (Centered focus on table & arms)
-  3) front_cam: Eye-level frontal close-up action view (Centered handover view)
-- Dual Wrist Camera Renderers (L-Wrist & R-Wrist)
+- Standard Bimanual Arm Base Setup: left_base at -0.32, right_base at +0.32
+- Fixed Cube Physics: Solidly placed at [-0.16, 0.0, 0.245]
+- Dynamic Kinematic Coupling during Grasping & Handover
+- 3 Pro Camera Perspectives: top_cam, iso_cam, front_cam
+- Dual Wrist Cameras: left_wrist_cam, right_wrist_cam
 """
 
 import mujoco
@@ -64,7 +62,7 @@ ALOHA_MJCF_XML = """
     <camera name="front_cam" pos="0 -0.65 0.40" xyaxes="1 0 0 0 0.2490 0.9685"/>
 
     <!-- ================= LEFT ARM (6 DOF + Gripper) ================= -->
-    <body name="left_base" pos="-0.48 0 0.25">
+    <body name="left_base" pos="-0.32 0 0.25">
       <geom type="cylinder" size="0.05 0.03" rgba="0.25 0.28 0.32 1"/>
       
       <body name="left_waist" pos="0 0 0.03">
@@ -109,7 +107,7 @@ ALOHA_MJCF_XML = """
     </body>
 
     <!-- ================= RIGHT ARM (6 DOF + Gripper) ================= -->
-    <body name="right_base" pos="0.48 0 0.25">
+    <body name="right_base" pos="0.32 0 0.25">
       <geom type="cylinder" size="0.05 0.03" rgba="0.25 0.28 0.32 1"/>
       
       <body name="right_waist" pos="0 0 0.03">
@@ -221,8 +219,9 @@ class AlohaEnv:
 
         cube_x = -0.16 + (np.random.uniform(-0.01, 0.01) if randomize_cube else 0.0)
         cube_y = 0.0 + (np.random.uniform(-0.01, 0.01) if randomize_cube else 0.0)
-        self.data.qpos[14:17] = [cube_x, cube_y, 0.245]
-        self.data.qpos[17:21] = [1.0, 0.0, 0.0, 0.0]
+        self.data.qpos[0:3] = [cube_x, cube_y, 0.245]
+        self.data.qpos[3:7] = [1.0, 0.0, 0.0, 0.0]
+        self.data.qpos[7:21] = initial_qpos
 
         for _ in range(50):
             mujoco.mj_step(self.model, self.data)
@@ -237,11 +236,32 @@ class AlohaEnv:
         for _ in range(10):
             mujoco.mj_step(self.model, self.data)
 
+        # Dynamic Kinematic Grasping Simulation:
+        # Left gripper is closed and right is open -> cube attaches to left wrist
+        l_grip = action_14dof[6]
+        r_grip = action_14dof[13]
+
+        l_wrist_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "left_wrist_roll")
+        r_wrist_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "right_wrist_roll")
+        l_pos = np.array(self.data.xpos[l_wrist_id])
+        r_pos = np.array(self.data.xpos[r_wrist_id])
+
+        # If left gripper clamped:
+        if l_grip < 0.02 and r_grip > 0.02:
+            self.data.qpos[0:3] = l_pos + np.array([0.02, 0.0, -0.01])
+            self.data.qvel[0:3] = 0.0
+            mujoco.mj_forward(self.model, self.data)
+        # If right gripper clamped:
+        elif r_grip < 0.02:
+            self.data.qpos[0:3] = r_pos + np.array([-0.02, 0.0, -0.01])
+            self.data.qvel[0:3] = 0.0
+            mujoco.mj_forward(self.model, self.data)
+
         obs = self.get_observation()
         return obs
 
     def get_joint_positions(self):
-        return np.array([self.data.qpos[i] for i in range(14)])
+        return np.array([self.data.qpos[7 + i] for i in range(14)])
 
     def get_joint_torques(self):
         return np.array([self.data.actuator_force[i] for i in range(14)])

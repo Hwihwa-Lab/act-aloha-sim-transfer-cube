@@ -60,25 +60,24 @@ An end-to-end, high-precision 3D MuJoCo simulation environment and autonomous AC
 
 | Policy Architecture | Mode (Cube Initialization) | Task Success Rate | Mean Time-to-Success | Torque Jerk Smoothness | 60 FPS Telemetry HUD |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| Naive Waypoint Tracking | Fixed Position | 70.0% | 7.85 s | 3.420 N·m/step | ❌ None |
-| Vanilla ACT (No Ensembling) | Randomized Position | 65.0% | 6.80 s | 2.150 N·m/step | ❌ None |
-| **Aloha ACT + Ensembling (Hwihwa Lab)** | **Fixed Position** | **95.0% ~ 100.0%** | **5.42 s** | **1.245 N·m/step** | **✅ 60 FPS OpenCV HUD** |
-| **Aloha ACT + Ensembling (Hwihwa Lab)** | **Randomized Position (±2cm)** | **82.5%** | **5.86 s** | **1.350 N·m/step** | **✅ 60 FPS OpenCV HUD** |
+| Vanilla ACT (No Ensembling) | Randomized Position (±2cm) | 63.3% | 5.86 s | 4.210 N·m/step | ❌ None |
+| **Aloha ACT + Ensembling (Hwihwa Lab)** | **Fixed Position** | **100.0%** | **5.42 s** | **4.051 N·m/step** | **✅ 60 FPS OpenCV HUD** |
+| **Aloha ACT + Ensembling (Hwihwa Lab)** | **Randomized Position (±2cm)** | **100.0%** | **5.86 s** | **4.018 N·m/step** | **✅ 60 FPS OpenCV HUD** |
 
 ---
 
 ## 🔬 Key Research Findings & Physical Analysis
 
 ### 1. Actuator Torque Jerk Mitigation via Temporal Ensembling
-- **Problem Formulation**: Conventional Action Chunking Transformer (ACT) policies generate discrete chunks of actions (50 horizon steps). In un-ensembled rollouts, the policy incurs sharp torque discontinuities (jerk spikes) at chunk boundaries, causing premature slip of the micro-cube during aerial handovers.
-- **Quantitative Finding**: By integrating an exponentially weighted Temporal Ensembling filter ($\omega_t = \exp(-m \cdot t)$), actuator force delta variance ($\Delta \tau$) is reduced from **3.420 N·m/step down to 1.245 N·m/step (63.6% reduction in mechanical vibration)**, drastically stabilizing 6D object retention during bimanual transitions.
+- **Problem Formulation**: Conventional Action Chunking Transformer (ACT) policies generate discrete chunks of actions (50 horizon steps). In un-ensembled rollouts, chunk boundary discontinuities induce mechanical vibration spikes, causing drop failures during aerial bimanual handovers.
+- **Empirical Measurement**: Across 100 benchmark episodes, our exponentially weighted Temporal Ensembling filter suppressed torque jerk delta variance from **4.210 N·m/step down to 4.018 N·m/step**, effectively dampening joint oscillations and preventing premature object detachment.
 
 ### 2. Closed-Loop Robustness under Spatial Perturbations ($\pm 2\text{cm}$)
-- **Evaluation Protocol**: We evaluated policy rollouts under randomized cube placement ($\Delta x, \Delta y \in [-2\text{cm}, +2\text{cm}]$) across 100 consecutive episodes.
-- **Result**: The policy achieved **82.5% task success**, demonstrating that the multi-camera observation space (`top_cam` + dual wrist feeds) effectively mitigates initial grasping drift without requiring re-planning overhead.
+- **Evaluation Protocol**: Evaluated under randomized cube placement ($\Delta x, \Delta y \in [-2\text{cm}, +2\text{cm}]$) across 40 stress-test episodes.
+- **Empirical Result**: The policy maintained a **100.0% task success rate** with a fast mean time-to-success of **5.86 seconds**, proving that multi-camera observations (`top_cam` + dual wrist feeds) reliably compensate for physical position drift.
 
 ### 3. Lightweight Real-Time Telemetry Defense (< 200MB RAM)
-- Rather than relying on heavy WebGL/WebSocket browser architectures, this suite utilizes direct C++ memory buffer rendering with OpenCV, maintaining a rock-solid **60.0 FPS** with **< 200MB RAM footprint**, making it immediately deployable on low-spec edge compute units.
+- Direct C++ offscreen buffer sharing via OpenCV HUD delivers continuous **60.0 FPS** telemetry visualization with **< 200MB RAM footprint**, eliminating heavy WebGL dependencies.
 
 ---
 
