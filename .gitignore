@@ -1,15 +1,23 @@
-﻿# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.class
+*$py.class
 
 # Virtual Environments
 .venv/
 venv/
 ENV/
+env/
 
 # OS / Temporary debug files
 .DS_Store
 Thumbs.db
 debug_*.png
 iso_cam*.png
+test_*.png
+*.tmp
+*.log
+
+# IDE Specifics
+.vscode/
+.idea/
