@@ -48,7 +48,7 @@ model-index:
 [![Language: 한국어](https://img.shields.io/badge/Language-한국어-green)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README_KR.md)
 [![Hugging Face Model Hub](https://img.shields.io/badge/🤗%20Hugging%20Face-Model%20Hub-orange)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/LICENSE)
 [![LeRobot](https://img.shields.io/badge/LeRobot-HuggingFace-FFD21E?style=flat&logo=huggingface)](https://github.com/huggingface/lerobot)
 [![MuJoCo 3.x](https://img.shields.io/badge/MuJoCo-3.x%20Physics-0080FF)](https://mujoco.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org)
