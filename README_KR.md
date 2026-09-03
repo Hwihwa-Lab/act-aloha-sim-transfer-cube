@@ -15,9 +15,18 @@
 
 Hugging Face LeRobot 생태계 표준 기반의 **Aloha 14-자유도 Bimanual(양팔) 로봇 큐브 전달(Transfer Cube) 물리 시뮬레이션 및 실시간 AI 벤치마크 텔레메트리 시스템** 한국어 종합 기술 문서입니다.
 
+<div align="center">
+  <img src="assets/aloha_cockpit_hud.png" alt="Aloha Bimanual Live Cockpit HUD" width="100%" style="border-radius: 8px; border: 1px solid #334460; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" />
+  <p><em>그림 1: 14-DOF 관절 실시간 게이지, 듀얼 손목 카메라 PiP, 9단계 핸드오버 마일스톤 추적 60fps 콕핏 HUD</em></p>
+</div>
+
 ---
 
 ## 📊 모델 사양 및 정량 벤치마크 성능표 (Model Specifications & Benchmark)
+
+<div align="center">
+  <img src="assets/research_benchmark_metrics.png" alt="Aloha Bimanual Research Benchmark Chart" width="100%" style="border-radius: 8px; border: 1px solid #334460; margin-bottom: 12px;" />
+</div>
 
 | 정책 알고리즘 | 큐브 초기화 모드 | 태스크 성공률 | 평균 도달 시간 | 관절 충격도 (Jerk Metric) | 60 FPS 텔레메트리 HUD |
 | :--- | :---: | :---: | :---: | :---: | :---: |

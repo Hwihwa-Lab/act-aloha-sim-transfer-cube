@@ -59,9 +59,18 @@ model-index:
 
 An end-to-end, high-precision 3D MuJoCo physics simulation suite and autonomous ACT (Action Chunking Transformer) policy benchmark for the **Aloha 14-DOF Bimanual Robot Transfer Cube task**, adhering to the official [Hugging Face LeRobot](https://github.com/huggingface/lerobot) standard.
 
+<div align="center">
+  <img src="assets/aloha_cockpit_hud.png" alt="Aloha Bimanual Live Cockpit HUD" width="100%" style="border-radius: 8px; border: 1px solid #334460; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" />
+  <p><em>Figure 1: Real-time 60fps Telemetry Cockpit featuring 14-DOF Joint Gauges, Multi-Camera Wrist PiP, and 9-Stage Handover Tracker.</em></p>
+</div>
+
 ---
 
 ## 📊 Model Specifications & Benchmark Performance
+
+<div align="center">
+  <img src="assets/research_benchmark_metrics.png" alt="Aloha Bimanual Research Benchmark Chart" width="100%" style="border-radius: 8px; border: 1px solid #334460; margin-bottom: 12px;" />
+</div>
 
 | Policy Architecture | Mode (Cube Initialization) | Task Success Rate | Mean Time-to-Success | Torque Jerk Smoothness | 60 FPS Telemetry HUD |
 | :--- | :---: | :---: | :---: | :---: | :---: |
