@@ -42,17 +42,22 @@ model-index:
       value: 1.245
 ---
 
-# Aloha 14-DOF Bimanual MuJoCo Simulator with LeRobot ACT & Telemetry HUD
+# 🤖 ALOHA 14-DOF Bimanual // ACT Live Cockpit & Physical AI Benchmark
 
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model%20Hub-orange.svg)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube)
-[![Physics](https://img.shields.io/badge/Physics-MuJoCo%203.x-blue.svg)](https://mujoco.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-orange.svg)](https://www.python.org/)
-[![Korean Doc](https://img.shields.io/badge/Docs-%ED%95%9C%EA%B5%AD%EC%96%B4%20%EB%A7%A4%EB%89%B4%EC%96%BC-red.svg)](README_KR.md)
+[![Language: English](https://img.shields.io/badge/Language-English-blue)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README.md)
+[![Language: 한국어](https://img.shields.io/badge/Language-한국어-green)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README_KR.md)
+[![Hugging Face Model Hub](https://img.shields.io/badge/🤗%20Hugging%20Face-Model%20Hub-orange)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube/blob/main/LICENSE)
+[![LeRobot](https://img.shields.io/badge/LeRobot-HuggingFace-FFD21E?style=flat&logo=huggingface)](https://github.com/huggingface/lerobot)
+[![MuJoCo 3.x](https://img.shields.io/badge/MuJoCo-3.x%20Physics-0080FF)](https://mujoco.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python)](https://www.python.org)
 
-An end-to-end, high-precision 3D MuJoCo simulation environment and autonomous ACT (Action Chunking Transformer) policy benchmark for the **Aloha 14-DOF Bimanual Robot Transfer Cube task**, adhering to the [Hugging Face LeRobot](https://github.com/huggingface/lerobot) standard.
+> **Autonomous ACT (Action Chunking Transformer) Bimanual Manipulation & 60fps Telemetry HUD**  
+> *[ 🌐 English Documentation ](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README.md) | [ 🇰🇷 한국어 매뉴얼 ](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README_KR.md)*
 
-> 📖 **한국어 문서(Korean Documentation)**: [README_KR.md](README_KR.md)를 참고하세요.
+An end-to-end, high-precision 3D MuJoCo physics simulation suite and autonomous ACT (Action Chunking Transformer) policy benchmark for the **Aloha 14-DOF Bimanual Robot Transfer Cube task**, adhering to the official [Hugging Face LeRobot](https://github.com/huggingface/lerobot) standard.
 
 ---
 

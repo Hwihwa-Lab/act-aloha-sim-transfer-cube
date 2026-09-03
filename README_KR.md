@@ -1,14 +1,19 @@
-# Aloha 14-DOF Bimanual MuJoCo 시뮬레이터 및 LeRobot ACT 텔레메트리 HUD
+# 🤖 ALOHA 14-DOF Bimanual // ACT 라이브 콕핏 & 물리 AI 벤치마크
 
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model%20Hub-orange.svg)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube)
-[![Physics](https://img.shields.io/badge/Physics-MuJoCo%203.x-blue.svg)](https://mujoco.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-orange.svg)](https://www.python.org/)
-[![English Doc](https://img.shields.io/badge/Docs-English%20Manual-blue.svg)](README.md)
+[![Language: English](https://img.shields.io/badge/Language-English-blue)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README.md)
+[![Language: 한국어](https://img.shields.io/badge/Language-한국어-green)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README_KR.md)
+[![Hugging Face Model Hub](https://img.shields.io/badge/🤗%20Hugging%20Face-Model%20Hub-orange)](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=flat&logo=github)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube/blob/main/LICENSE)
+[![LeRobot](https://img.shields.io/badge/LeRobot-HuggingFace-FFD21E?style=flat&logo=huggingface)](https://github.com/huggingface/lerobot)
+[![MuJoCo 3.x](https://img.shields.io/badge/MuJoCo-3.x%20Physics-0080FF)](https://mujoco.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=flat&logo=pytorch)](https://pytorch.org)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python)](https://www.python.org)
 
-Hugging Face LeRobot 생태계 표준 기반의 **Aloha 14-자유도 Bimanual(양팔) 로봇 큐브 전달(Transfer Cube) 시뮬레이션 및 실시간 AI 벤치마크 텔레메트리 시스템** 한국어 안내 문서입니다.
+> **자율 ACT (Action Chunking Transformer) 양팔 로봇 제어 및 60fps 텔레메트리 HUD 시스템**  
+> *[ 🌐 English Documentation ](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README.md) | [ 🇰🇷 한국어 매뉴얼 ](https://huggingface.co/hwihwalab/act-aloha-sim-transfer-cube/blob/main/README_KR.md)*
 
-> 🌐 **English Documentation**: [README.md](README.md)를 참고하세요.
+Hugging Face LeRobot 생태계 표준 기반의 **Aloha 14-자유도 Bimanual(양팔) 로봇 큐브 전달(Transfer Cube) 물리 시뮬레이션 및 실시간 AI 벤치마크 텔레메트리 시스템** 한국어 종합 기술 문서입니다.
 
 ---
 
