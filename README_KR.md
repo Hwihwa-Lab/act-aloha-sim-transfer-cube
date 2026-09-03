@@ -154,8 +154,8 @@ for _ in range(400):
 
 ---
 
-## 📜 라이센스 및 저작권
-본 프로젝트는 **MIT License**를 따릅니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+## 📜 라이선스 (License)
+본 프로젝트는 MIT 라이선스에 따라 자유롭게 배포 및 활용이 가능합니다. 상세 내용은 [LICENSE](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube/blob/main/LICENSE) 파일을 참조하세요.
 
 ---
 

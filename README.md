@@ -231,7 +231,7 @@ for _ in range(400):
 ---
 
 ## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Hwihwa-Lab/act-aloha-sim-transfer-cube/blob/main/LICENSE) file for details.
 
 ---
 
